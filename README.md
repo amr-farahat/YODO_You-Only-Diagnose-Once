@@ -5,7 +5,7 @@ Using YOLOv2 to detect pneumonic patches in CXR images using the dataset from [R
 #### The process
 1. Use a pretrained [CheXNet](https://arxiv.org/abs/1711.05225) model as a backbone feature extractor for the YOLOv2 model.
 2. Fine tune the model for classifying the 3 cases we have in our dataset (Normal, Opacity, No Opacity/ Not Normal)
-3. Add three additional convolutional layers to the model after fine funing to end up with the detcetion layer (shape: $7\times7\times5\times5$)
+3. Add three additional convolutional layers to the model after fine funing to end up with the detcetion layer (shape: 7 * 7 * 5 * 5)
 4. Train the 3 convolutional layers with freezing the weights of the rest of the network and then finetune the whole network.
 5. Because of the infrequent presence of the pneumonic patches in the dataset, I used a dynamic method for weighting the loss that gives higher weight for missing a pneumonic patch by computing the weights for each training patch separately. 
 
